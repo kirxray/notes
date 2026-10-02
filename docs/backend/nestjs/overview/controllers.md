@@ -435,7 +435,7 @@ const app = await NestFactory.create<NestFastifyApplication>(
 
 ## Обработка ошибок {/* #handling-errors */}
 
-Обработка ошибок (то есть работа с исключениями) описана в главе «Фильтры исключений»{/* TODO-LINK: https://docs.nestjs.com/exception-filters — Overview → Exception filters */}.
+Обработка ошибок (то есть работа с исключениями) описана в главе [«Фильтры исключений»](./exception-filters.md).
 
 ## Наблюдение за маршрутами в продакшене {/* #observing-routes-in-production */}
 
