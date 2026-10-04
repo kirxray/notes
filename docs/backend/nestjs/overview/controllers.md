@@ -115,7 +115,7 @@ findOne(@Param('id', { schema: z.coerce.number().int().positive() }) id: number)
 Сами по себе эти декораторы лишь прикрепляют схему как метаданные. Чтобы выполнять по ней валидацию, зарегистрируйте встроенный `StandardSchemaValidationPipe` или собственный пайп, который читает `metadata.schema`.
 
 :::tip[Подсказка]
-О том, как создавать собственные декораторы, читайте в главе «Пользовательские декораторы маршрутов»{/* TODO-LINK: https://docs.nestjs.com/custom-decorators — Overview → Custom decorators */}.
+О том, как создавать собственные декораторы, читайте в главе [«Пользовательские декораторы маршрутов»](./custom-decorators.md).
 :::
 
 ## Ресурсы {/* #resources */}

@@ -1,43 +1,68 @@
-# Website
+# Конспект
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+Переводы официальной документации на русский язык — личный конспект на [Docusaurus](https://docusaurus.io/).
 
-## Installation
+Сайт: https://kirxray.github.io/notes/
 
-```bash
-npm install
+- Только русский текст, оригинал не дублируется — в начале каждой страницы есть ссылка на него, версия и дата перевода.
+- Код и команды не переводятся, комментарии в коде — переводятся.
+- Свои пометки, которых нет в оригинале, выделены блоком `:::note[Примечание]`.
+
+## Что переведено
+
+### NestJS
+
+| Раздел | Страницы |
+| --- | --- |
+| — | Introduction |
+| Обзор (Overview) | First steps, Controllers, Providers, Modules, Middleware, Exception filters, Pipes, Guards, Interceptors, Custom decorators |
+| Основы (Fundamentals) | Custom providers, Asynchronous providers |
+
+## Структура
+
+```text
+docs/
+├── intro.md                  # главная страница («О конспекте»)
+└── backend/
+    └── nestjs/
+        ├── introduction.md
+        ├── overview/         # раздел меню «Обзор»
+        └── fundamentals/     # раздел меню «Основы»
+static/img/nestjs/            # схемы из оригинальной документации
+src/css/custom.css            # стили (в т. ч. инверсия схем в тёмной теме)
+.claude/                      # правила оформления переводов
+.github/workflows/deploy.yml  # сборка и деплой на GitHub Pages
 ```
 
-**Note**: feel free to use the package manager of your choice.
+- Раздел — папка в `docs/` с `_category_.json` (`label`, `position`).
+- Имя файла — slug страницы оригинала (`first-steps.md`, `custom-providers.md`).
+- Правила оформления страниц и переноса ссылок — в [`.claude/rules/`](.claude/rules/).
 
-## Local Development
+## Разработка
+
+Нужен Node.js 20+.
 
 ```bash
-npm run start
+yarn install
+npm start
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+Dev-сервер: http://localhost:7007
 
-## Build
+Поиск локальный, его индекс строится только при сборке. Поэтому `npm start` сначала собирает сайт и копирует индекс в `static/search-index.json`. Если поменяли текст при запущенном сервере, индекс в dev устаревает — обновите его:
+
+```bash
+npm run search-index
+```
+
+## Проверка
 
 ```bash
 npm run build
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+Сборка падает на битых ссылках и ошибках MDX — запускайте её перед коммитом.
 
-## Deployment
+## Деплой
 
-Using SSH:
-
-```bash
-USE_SSH=true npm run deploy
-```
-
-Not using SSH:
-
-```bash
-GIT_USER=<Your GitHub username> npm run deploy
-```
-
-If you are using GitHub Pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+Автоматический: при пуше в `main` GitHub Actions собирает сайт и публикует его на GitHub Pages (`.github/workflows/deploy.yml`). В настройках репозитория **Settings → Pages → Source** должно быть выбрано **GitHub Actions**.

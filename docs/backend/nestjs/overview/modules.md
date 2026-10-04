@@ -184,7 +184,7 @@ export class FeatureFlagsModule {
 }
 ```
 
-Токен внедрения `FEATURE_FLAGS` — обычная константа (`export const FEATURE_FLAGS = 'FEATURE_FLAGS';`), как описано в разделе «Токены провайдеров, не основанные на классах»{/* TODO-LINK: https://docs.nestjs.com/fundamentals/custom-providers#non-class-based-provider-tokens — Fundamentals → Custom providers → Non-class-based provider tokens */}.
+Токен внедрения `FEATURE_FLAGS` — обычная константа (`export const FEATURE_FLAGS = 'FEATURE_FLAGS';`), как описано в разделе [«Токены провайдеров, не основанные на классах»](../fundamentals/custom-providers.md#non-class-based-provider-tokens).
 
 :::tip[Подсказка]
 Метод `forRoot()` может возвращать динамический модуль как синхронно, так и асинхронно (то есть через `Promise`).
