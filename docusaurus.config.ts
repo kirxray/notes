@@ -1,6 +1,7 @@
 import type * as Preset from "@docusaurus/preset-classic";
 import type { Config } from "@docusaurus/types";
-import { themes as prismThemes } from "prism-react-renderer";
+import prismThemeDark from "./src/prism/dark";
+import prismThemeLight from "./src/prism/light";
 
 const [owner = "localhost", repo = ""] = (
 	process.env.GITHUB_REPOSITORY ?? ""
@@ -10,7 +11,25 @@ const isUserSite = repo.toLowerCase() === `${owner.toLowerCase()}.github.io`;
 const config: Config = {
 	title: "Конспект",
 	tagline: "Переводы официальной документации на русский язык",
-	favicon: "img/favicon.ico",
+	favicon: "img/favicon.svg",
+
+	headTags: [
+		{
+			tagName: "link",
+			attributes: { rel: "preconnect", href: "https://fonts.googleapis.com" },
+		},
+		{
+			tagName: "link",
+			attributes: {
+				rel: "preconnect",
+				href: "https://fonts.gstatic.com",
+				crossorigin: "anonymous",
+			},
+		},
+	],
+	stylesheets: [
+		"https://fonts.googleapis.com/css2?family=Onest:wght@300..700&display=swap",
+	],
 
 	future: {
 		v4: true,
@@ -72,22 +91,16 @@ const config: Config = {
 				alt: "Логотип",
 				src: "img/logo.svg",
 			},
-			items: [
-				{
-					type: "docSidebar",
-					sidebarId: "docsSidebar",
-					position: "left",
-					label: "Документация",
-				},
-			],
+			style: "dark",
+			items: [],
 		},
 		footer: {
 			style: "dark",
 			copyright: `© ${new Date().getFullYear()} Конспект. Сделано на Docusaurus.`,
 		},
 		prism: {
-			theme: prismThemes.github,
-			darkTheme: prismThemes.dracula,
+			theme: prismThemeLight,
+			darkTheme: prismThemeDark,
 		},
 	} satisfies Preset.ThemeConfig,
 };

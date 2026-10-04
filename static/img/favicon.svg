@@ -1,5 +1,6 @@
 <!-- Lucide «notebook-text» (lucide-static v1.52.0, ISC, https://lucide.dev) -->
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <style>@media (prefers-color-scheme: dark) { svg { stroke: #38bdf8; } }</style>
   <path d="M2 6h4"/>
   <path d="M2 10h4"/>
   <path d="M2 14h4"/>
